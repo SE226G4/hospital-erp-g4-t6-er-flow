@@ -34,14 +34,21 @@
   * **For Subsystem Teams:** State clearly that your module is a component of a larger system. How does it interact with the master database or other modules?
   * **For the Integration Team:** Provide the high-level block diagram showing all subsystems and their connection points.
 
-*   **2.1.1 System Interfaces:** [List the exact integration points and APIs your module exposes to, or consumes from, other teams].
+*   **2.1.1 System Interfaces:** 
+    - **ADM-MC Interface:** Consumes patient persona and medical history data.
+    - **IPD-BED Interface:** Sends bed reservation requests for critical emergency cases and receives bed availability status.
+    - **FIN-INS Interface:** Provides activity logs and triage decisions for billing purposes.
+
 *   **2.1.2 User Interfaces:**
 -  ​The module will feature a web-based dashboard designed for high-pressure environments.
 -  The UI will follow a "Speed-First" philosophy, using a color-coded Triage Matrix (Red for Critical, Yellow for Urgent, Green for Stable) to ensure rapid decision-making.
  - All interfaces will be responsive and strictly adhere to the hospital's unified design system to ensure consistency with other modules.
 *   **2.1.3 Hardware Interfaces:** [List any required hardware, e.g., barcode scanners for labs, or state "None"].
 *   **2.1.4 Software Interfaces:** [Specify OS requirements, database dependencies, or third-party libraries].
-*   **2.1.5 Communications Interfaces:** [Define networking protocols used, e.g., HTTP/REST, WebSockets].
+*   **2.1.5 Communications Interfaces:** 
+**2.1.5 Communications Interfaces:** 
+    - The module will communicate with other subsystems using **HTTP/RESTful APIs**.
+    - Data exchange format will be **JSON**.
 *   **2.1.6 Memory & Operational Constraints:** [State minimum RAM, storage, and normal operating assumptions].
 
 ### 2.2 Product Functions
@@ -63,8 +70,7 @@
  * Instruction:
    * Inbound Data: The system will receive JSON objects containing Patient_ID, Triage_Level, and Medical_History from the Admission module.
    * Outbound Data: The system will send a POST request to the IPD module containing Patient_ID and Priority_Level to secure a bed.
-   * UI Integration:
-[25/11/47 01:34 م] Mary Hussain: The triage dashboard must display real-time visual indicators (e.g., icons or status bars) representing bed availability based on updates from the bed management system.
+   * UI Integration: The triage dashboard must display real-time visual indicators (e.g., icons or status bars) representing bed availability based on updates from the bed management system.
 
 Patient prioritization must be highlighted using a standard color-coding scheme (Red for immediate, Green for non-urgent) to ensure quick visual recognition.
 
@@ -73,13 +79,18 @@ The system must provide an interactive map or a simplified list view that allows
 ### 3.2 System Features & User Stories
 * **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
 
+
 #### 3.2.1 Feature: [Insert Feature Name, e.g., Patient Registration]
 *   **Description:** [Briefly describe the feature].
 *   **Priority:** [High / Medium / Low].
 *   **User Stories:**
     *   **Story 1:**As a Triage Nurse, I want to enter the patient's National ID so that I can verify their identity and view their mandatory Risk Profile (Allergies/Chronic Diseases) before admission.
-    *    ​**Story2: As a Triage Nurse, I want to see a visual confirmation message on the screen once the bed reservation is confirmed by the IPD module.
+    *    ​**Story2:** As a Triage Nurse, I want to see a visual confirmation message on the screen once the bed reservation is confirmed by the IPD module.
         * *Acceptance Criteria:* A success notification (Toast) appears clearly on the dashboard.
+
+     **Story 3:** As a Triage Nurse, I want the system to automatically send a reservation request to the IPD module when a case is marked "Critical" so that the patient gets immediate care
+        * *Acceptance Criteria:* Request is sent within 1 second of classification.
+        System receives and displays a confirmation or "No Bed Available" alert.
 
 #### 3.2.2 Feature: [Insert Feature Name]
 *   [Repeat the structure above for all module features].
