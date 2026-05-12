@@ -35,7 +35,10 @@
   * **For the Integration Team:** Provide the high-level block diagram showing all subsystems and their connection points.
 
 *   **2.1.1 System Interfaces:** [List the exact integration points and APIs your module exposes to, or consumes from, other teams].
-*   **2.1.2 User Interfaces:** [Describe the logical characteristics of your UI. Are you following a shared design system?].
+*   **2.1.2 User Interfaces:**
+-  ​The module will feature a web-based dashboard designed for high-pressure environments.
+-  The UI will follow a "Speed-First" philosophy, using a color-coded Triage Matrix (Red for Critical, Yellow for Urgent, Green for Stable) to ensure rapid decision-making.
+ - All interfaces will be responsive and strictly adhere to the hospital's unified design system to ensure consistency with other modules.
 *   **2.1.3 Hardware Interfaces:** [List any required hardware, e.g., barcode scanners for labs, or state "None"].
 *   **2.1.4 Software Interfaces:** [Specify OS requirements, database dependencies, or third-party libraries].
 *   **2.1.5 Communications Interfaces:** [Define networking protocols used, e.g., HTTP/REST, WebSockets].
@@ -56,7 +59,16 @@
 * **Instruction:** This section translates traditional functional requirements into Agile User Stories. Every feature must be traceable to the project management board.
 
 ### 3.1 External Interface Requirements
-* **Instruction:** Detail the exact data formats, API endpoints, and UI layouts needed for the interfaces mentioned in section 2.1.
+*
+ * Instruction:
+   * Inbound Data: The system will receive JSON objects containing Patient_ID, Triage_Level, and Medical_History from the Admission module.
+   * Outbound Data: The system will send a POST request to the IPD module containing Patient_ID and Priority_Level to secure a bed.
+   * UI Integration:
+[25/11/47 01:34 م] Mary Hussain: The triage dashboard must display real-time visual indicators (e.g., icons or status bars) representing bed availability based on updates from the bed management system.
+
+Patient prioritization must be highlighted using a standard color-coding scheme (Red for immediate, Green for non-urgent) to ensure quick visual recognition.
+
+The system must provide an interactive map or a simplified list view that allows the nurse to drag-and-drop or click to assign a patient to a bed once confirmed by the outbound request.
 
 ### 3.2 System Features & User Stories
 * **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
@@ -65,12 +77,9 @@
 *   **Description:** [Briefly describe the feature].
 *   **Priority:** [High / Medium / Low].
 *   **User Stories:**
-    *   **Story 1:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value]. 
-        * *Acceptance Criteria:* [List what must be true for this to be considered 'Done'].
-        * *GitHub Issue:* [Link to Issue, e.g., #12]
-    *   **Story 2:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value].
-        * *Acceptance Criteria:* [List criteria].
-        * *GitHub Issue:* [Link to Issue, e.g., #13]
+    *   **Story 1:**As a Triage Nurse, I want to enter the patient's National ID so that I can verify their identity and view their mandatory Risk Profile (Allergies/Chronic Diseases) before admission.
+    *    ​**Story2: As a Triage Nurse, I want to see a visual confirmation message on the screen once the bed reservation is confirmed by the IPD module.
+        * *Acceptance Criteria:* A success notification (Toast) appears clearly on the dashboard.
 
 #### 3.2.2 Feature: [Insert Feature Name]
 *   [Repeat the structure above for all module features].
