@@ -88,19 +88,43 @@ The system must provide an interactive map or a simplified list view that allows
 * **Instruction:** Specify quantitative limits. (e.g., "The module must return query results in under 2 seconds for up to 50 concurrent users").
 
 ### 3.4 Logical Database Requirements
-* **Instruction:** Describe the data entities managed by your module. If you are using a shared database, specify which tables your team is responsible for. (Include ERD models in the Appendix).
+The system utilizes a Relational Database Management System (RDBMS) to ensure data consistency and integrity. The data model is designed to support the emergency patient lifecycle from arrival to discharge.
+
+#### 3.4.1 Entity Relationship Model (ERD)
+The database follows a normalized structure to minimize redundancy. Key entities include:
+* **PATIENT**: Stores demographic information.
+* **EMERGENCY_VISIT**: The central link connecting patients, staff, and medical records.
+* **TRIAGE**: Captures vital signs and severity levels (Critical, Moderate, Simple).
+* **BED_ASSIGNMENT**: Manages the real-time allocation of hospital beds to specific visits.
+* **DECISION_AND_ACTION**: Records medical orders and actions taken by specific staff members.
+
+#### 3.4.2 Data Integrity & Constraints
+* **Primary Keys (PK)**: Every table has a unique integer identifier (e.g., `Patient_ID`, `Visit_ID`).
+* **Foreign Keys (FK)**: Relationships are strictly enforced to ensure traceability (e.g., a visit cannot exist without a valid Patient_ID).
+* **Timestamps**: All clinical actions (Triage, Decisions, Bed Moves) are logged with precise timestamps for audit purposes.
 
 ### 3.5 Software System Attributes
-* **Instruction:** Define the Non-Functional Requirements (NFRs) for your module:
-  * **Reliability:** [Acceptable failure rates].
-  * **Security:** [Authentication methods, data encryption protocols].
-  * **Maintainability & Portability:** [Coding standards, documentation rules].
+* **Security**: Data access is restricted based on Staff Roles. Patient sensitive data is protected via Foreign Key constraints to prevent unauthorized deletions.
+* **Reliability**: The database schema supports high availability by using efficient indexing on all Foreign Keys (`Patient_ID`, `Visit_ID`, `Staff_ID`).
+* **Traceability**: Every medical decision is linked to a `Staff_ID`, ensuring a clear audit trail for every action taken within the Emergency Department.
 
 ---
 
 ## 4. Appendices
 ### Appendix A: Glossary & Models
-* **Instruction:** Include any Data Flow Diagrams (DFDs), Entity-Relationship Diagrams (ERDs), or detailed UI Mockups here.
+
+#### A.1 Entity Relationship Diagram (ERD)
+The following diagram represents the logical schema for the Emergency Management Module:
+
+![Emergency Module ERD](erd_diagram.png) 
+*Note: Refer to erd_diagram.png for the full high-resolution diagram.*
+
+#### A.2 Database Schema Mapping
+Below is the mapping of physical tables based on the designed ERD:
+1. **STAFF** (`Staff_ID`, `Name`, `Role`)
+2. **BED** (`Bed_ID`, `Bed_Number`, `Room_Number`, `Availability_Status`)
+3. **TRIAGE** (`Triage_ID`, `Visit_ID` [FK], `Staff_ID` [FK], `Severity_Level`, `Triage_Time`)
+4. **BED_ASSIGNMENT** (`Assignment_ID`, `Visit_ID` [FK], `Bed_ID` [FK], `Assignment_Time`, `Discharge_Time`)
 
 ### Appendix B: GitHub Traceability Checklist
 * **Instruction for Team Members:** Before submitting this SRS, ensure that:
