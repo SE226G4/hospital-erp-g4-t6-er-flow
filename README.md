@@ -34,8 +34,12 @@ Provide a brief description of what this module does based on the project text. 
 
 ## 🔗 Integration Points
 *How this module communicates with others:*
-* **Inbound:** Data received from [Module Name].
-* **Outbound:** Data sent to [Module Name].
+* **Inbound:** 
+ - **Patient Demographic & Medical History:** Received from ADM-MC (Admission Module).
+ - **Bed Status Updates:** Received from IPD-BED (Inpatient Module) to check for available emergency-assigned beds.
+* **Outbound:** 
+ - **Urgent Admission Requests:** Sent to IPD-BED (Inpatient Module) when a patient is classified as "Critical" or "Immediate".
+ - **Triage Activity Logs & Services Rendered:** Sent to FIN-INS (Financial Module) for accurate billing and insurance processing.
 
 ---
 ## 🛠 Tools Used

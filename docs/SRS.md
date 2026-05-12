@@ -34,11 +34,18 @@
   * **For Subsystem Teams:** State clearly that your module is a component of a larger system. How does it interact with the master database or other modules?
   * **For the Integration Team:** Provide the high-level block diagram showing all subsystems and their connection points.
 
-*   **2.1.1 System Interfaces:** [List the exact integration points and APIs your module exposes to, or consumes from, other teams].
+*   **2.1.1 System Interfaces:** 
+    - **ADM-MC Interface:** Consumes patient personal and medical history data.
+    - **IPD-BED Interface:** Sends bed reservation requests for critical emergency cases and receives bed availability status.
+    - **FIN-INS Interface:** Provides activity logs and triage decisions for billing purposes.
+
 *   **2.1.2 User Interfaces:** [Describe the logical characteristics of your UI. Are you following a shared design system?].
 *   **2.1.3 Hardware Interfaces:** [List any required hardware, e.g., barcode scanners for labs, or state "None"].
 *   **2.1.4 Software Interfaces:** [Specify OS requirements, database dependencies, or third-party libraries].
-*   **2.1.5 Communications Interfaces:** [Define networking protocols used, e.g., HTTP/REST, WebSockets].
+*   **2.1.5 Communications Interfaces:** 
+    - The module will communicate with other subsystems using **HTTP/RESTful APIs**.
+    - Data exchange format will be **JSON**.
+
 *   **2.1.6 Memory & Operational Constraints:** [State minimum RAM, storage, and normal operating assumptions].
 
 ### 2.2 Product Functions
@@ -56,7 +63,10 @@
 * **Instruction:** This section translates traditional functional requirements into Agile User Stories. Every feature must be traceable to the project management board.
 
 ### 3.1 External Interface Requirements
-* **Instruction:** Detail the exact data formats, API endpoints, and UI layouts needed for the interfaces mentioned in section 2.1.
+* **Instruction:**
+   * **Inbound Data:** The system will receive JSON objects containing Patient_ID, Triage_Level, and Medical_History from the Admission module.
+   * **Outbound Data:** The system will send a POST request to the IPD module containing Patient_ID and Priority_Level to secure a bed.
+   * **UI Integration:** The triage dashboard must display real-time updates from the bed management system.
 
 ### 3.2 System Features & User Stories
 * **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
@@ -65,8 +75,9 @@
 *   **Description:** [Briefly describe the feature].
 *   **Priority:** [High / Medium / Low].
 *   **User Stories:**
-    *   **Story 1:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value]. 
-        * *Acceptance Criteria:* [List what must be true for this to be considered 'Done'].
+    *   **Story 1:** As a Triage Nurse, I want the system to automatically send a reservation request to the IPD module when a case is marked "Critical" so that the patient gets immediate care
+        * *Acceptance Criteria:* Request is sent within 1 second of classification.
+System receives and displays a confirmation or "No Bed Available" alert.
         * *GitHub Issue:* [Link to Issue, e.g., #12]
     *   **Story 2:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value].
         * *Acceptance Criteria:* [List criteria].
