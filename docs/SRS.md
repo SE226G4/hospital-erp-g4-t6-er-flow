@@ -1,8 +1,9 @@
 ﻿# Software Requirements Specification (SRS)
-## Project: [Insert the Parent System Name, e.g., Hospital ERP System]
-## Module/Subsystem: [Insert Your Module Name, e.g., Laboratory Management, Clinical System, OR "Master Integration System" if you are the integration team]
+## Project: Hospital ERP System
+## Module: Emergency Flow & Triage Logic
+## Responsible Student: Student 03 (Process Modeling)  
 **Version:** 1.0  
-**Date:** [YYYY-MM-DD]
+**Date:** 2026-05-12
 
 ---
 
@@ -11,9 +12,21 @@
 * **Instruction:** Describe the specific purpose of this document. Who is the intended audience? If you are a subsystem team, explain how this document defines your specific module. If you are the Integration Team (Team Leaders), explain how this document governs the entire system.
 
 ### 1.2 Scope
-* **Instruction:** Define the boundaries of your system. 
-  * What are the core goals and benefits?
-  * **Crucial:** Explicitly list what your system *will* do and what it *will NOT* do to prevent overlap with other teams.
+Core Goals and Benefits:
+The primary goal of the Emergency Flow module is to automate the prioritization of patients based on medical urgency. This ensures life-threatening cases receive immediate attention and optimizes bed allocation through real-time system integration.
+
+System Boundaries:
+* The system WILL do:
+    * Automated Triage Logic: Reorder the patient queue dynamically based on severity levels (Critical, Moderate, Minor).
+    * Real-time Bed Verification: Communicate with the Bed Management module to check for availability and trigger atomic reservations.
+    * Emergency Notifications: Dispatch instant alerts to medical staff for "Critical" case arrivals.
+    * Performance Tracking: Calculate and log the "Response Time" for auditing purposes.
+
+* The system WILL NOT do:
+    * New Patient Registration: Relies on the external Admission Module for digital identity data.
+    * Automated Medical Diagnosis: Relies on severity input provided by clinical staff.
+    * Billing & Insurance: Handled exclusively by the Finance Module.
+
 
 ### 1.3 Definitions, Acronyms, and Abbreviations
 * **Instruction:** Provide a table defining all technical terms, acronyms, or domain-specific language (e.g., medical terms, API, ERP) used in this document so all teams share a common understanding.
@@ -47,8 +60,18 @@
 ### 2.3 User Characteristics
 * **Instruction:** Who will use your specific module? (e.g., Lab Technicians, Doctors, System Admins). Describe their technical expertise level.
 
-### 2.4 Constraints, Assumptions, and Dependencies
-* **Instruction:** List any factors that limit your development (e.g., medical data privacy laws, reliance on another team finishing their API first, specific coding languages mandated).
+#### 2.4.1 Constraints
+* Logic Constraint (Severity Priority): The system must implement a severity-based sorting algorithm where the Severity Level strictly overrides the Arrival Timestamp (FIFO).
+* Operational Constraint: Critical cases must trigger an immediate Emergency Alert if zero beds are available.
+* Audit Constraint: Every clinical decision and status change must be logged in a non-volatile audit trail.
+
+#### 2.4.2 Assumptions
+* Accurate Severity Input: It is assumed that triage staff will provide correct classifications via the API.
+* Real-time Bed Status: It is assumed that the bed database is updated in real-time to prevent double-booking.
+
+#### 2.4.3 Dependencies
+* Admission Module: Provides mandatory patient risk profiles and identity data.
+* Bed Management Module: Provides real-time availability for critical allocations.
 
 ---
 
@@ -59,40 +82,38 @@
 * **Instruction:** Detail the exact data formats, API endpoints, and UI layouts needed for the interfaces mentioned in section 2.1.
 
 ### 3.2 System Features & User Stories
-* **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
 
-#### 3.2.1 Feature: [Insert Feature Name, e.g., Patient Registration]
-*   **Description:** [Briefly describe the feature].
-*   **Priority:** [High / Medium / Low].
-*   **User Stories:**
-    *   **Story 1:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value]. 
-        * *Acceptance Criteria:* [List what must be true for this to be considered 'Done'].
-        * *GitHub Issue:* [Link to Issue, e.g., #12]
-    *   **Story 2:** As a [User Role], I want to [Action/Goal] so that [Benefit/Value].
-        * *Acceptance Criteria:* [List criteria].
-        * *GitHub Issue:* [Link to Issue, e.g., #13]
+#### 3.2.1 Feature: Smart Triage & Queue Management
+* Story 1: As a Triage Nurse, I want to input severity levels so the system re-prioritizes the queue.
+    * Acceptance Criteria: Critical cases jump to the top; Entry timestamps are recorded.
+    * GitHub Issue: [Link to Issue #21]
+* Story 2: As a Doctor, I want to receive immediate alerts for "Critical" status arrivals.
+    * GitHub Issue: [Link to Issue #22]
 
-#### 3.2.2 Feature: [Insert Feature Name]
-*   [Repeat the structure above for all module features].
+#### 3.2.2 Feature: Dynamic Bed Allocation Logic
+* Story 1: As a System Process, I want to query bed availability upon "Critical" classification to ensure assignment.
+    * Acceptance Criteria: Successful allocation triggers an atomic update to "Occupied".
+    * GitHub Issue: [Link to Issue #25]
+
 
 ### 3.3 Performance Requirements
-* **Instruction:** Specify quantitative limits. (e.g., "The module must return query results in under 2 seconds for up to 50 concurrent users").
+* Re-calculation Speed: Re-order the queue in < 0.5 seconds after a status change.
+* Throughput: Handle up to 50 concurrent triage updates without latency.
 
 ### 3.4 Logical Database Requirements
 * **Instruction:** Describe the data entities managed by your module. If you are using a shared database, specify which tables your team is responsible for. (Include ERD models in the Appendix).
 
-### 3.5 Software System Attributes
-* **Instruction:** Define the Non-Functional Requirements (NFRs) for your module:
-  * **Reliability:** [Acceptable failure rates].
-  * **Security:** [Authentication methods, data encryption protocols].
-  * **Maintainability & Portability:** [Coding standards, documentation rules].
-
+### 3.5 Software System Attributes (NFRs)
+* Reliability: The triage logic must maintain 99.9% availability. If the service fails, the system must default to FIFO to ensure safety.
+* Security: Access is restricted to authorized staff via Secure Token Authentication. Sensitive data is encrypted using Standard Industry Encryption Protocols.
+* Maintainability: Logic is implemented via a Decoupled Service Layer and follows Clean Coding Standards to allow easy updates to medical protocols.
 ---
 
 ## 4. Appendices
 ### Appendix A: Glossary & Models
-* **Instruction:** Include any Data Flow Diagrams (DFDs), Entity-Relationship Diagrams (ERDs), or detailed UI Mockups here.
-
+* Emergency Flow Activity Diagram:
+![Emergency Flow Activity Diagram](docs/emergency-flow.jpg)
+*This diagram illustrates the process logic for Student 03 (Emergency Flow & Triage).*
 ### Appendix B: GitHub Traceability Checklist
 * **Instruction for Team Members:** Before submitting this SRS, ensure that:
   * [ ] Every User Story in Section 3.2 has a corresponding GitHub Issue.
