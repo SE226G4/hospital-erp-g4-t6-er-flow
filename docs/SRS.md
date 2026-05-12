@@ -112,7 +112,7 @@ System Boundaries:
 ## 4. Appendices
 ### Appendix A: Glossary & Models
 * Emergency Flow Activity Diagram:
-![Emergency Flow Activity Diagram](docs/emergency-flow.jpg)
+![Emergency Flow Activity Diagram](emergency-flow.jpg)
 *This diagram illustrates the process logic for Student 03 (Emergency Flow & Triage).*
 ### Appendix B: GitHub Traceability Checklist
 * **Instruction for Team Members:** Before submitting this SRS, ensure that:
