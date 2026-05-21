@@ -45,7 +45,8 @@ The **ER-FLOW** module automates and manages patient traffic within the hospital
 ---
 
 ## Architectural Design
-
+## Project Source Files
+* To review the fully interactive UML models, you can download the original Visual Paradigm project file: [Download ER-FLOW-Analysis-Design.vpp](./)
 ### 1. Architectural Description
 The architecture of **ER-FLOW** follows a strict 3-tier pattern to guarantee high performance, clear separation of concerns, and rapid system responsiveness essential for emergency environments. The presentation layer (Client Layer) communicates with the backend services through a standardized interface called the `Emergency API`. Data operations are completely isolated within a dedicated `Database Access Component`, ensuring robust security, maintainability, and seamless database schema upgrades.
 
