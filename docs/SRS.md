@@ -46,6 +46,10 @@
 
 ### 2.2 Product Functions
 * **Instruction:** Provide a high-level, bulleted summary of the major functions your software performs. Do not go into deep detail here (save it for Section 3).
+The system shall classify emergency patients based on severity levels (Critical, Moderate, Mild).
+The system shall prioritize patient handling based on medical urgency rather than arrival time.
+The system shall automatically assign critical cases to available hospital beds through the Bed Management System.
+The system shall notify staff when no beds are available for critical patients.
 
 ### 2.3 User Characteristics
 * **Instruction:** Who will use your specific module? (e.g., Lab Technicians, Doctors, System Admins). Describe their technical expertise level.
@@ -53,6 +57,10 @@
 ### 2.4 Constraints, Assumptions, and Dependencies
 * **Instruction:** List any factors that limit your development (e.g., medical data privacy laws, reliance on another team finishing their API first, specific coding languages mandated).
 
+The system depends on real-time communication with the Bed Management System.
+Bed availability data must be continuously updated.
+Hospital staff must correctly input patient severity levels.
+The system assumes stable network connectivity for real-time updates.
 ---
 
 ## 3. Specific Requirements (Agile Approach)
@@ -72,7 +80,22 @@ The system must provide an interactive map or a simplified list view that allows
 
 ### 3.2 System Features & User Stories
 * **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
+Feature 1: Patient Triage Classification
+As a triage nurse, I want to classify patients based on severity (Critical, Moderate, Mild) so that urgent cases are handled first.
+Acceptance Criteria:
+System allows selection of severity level.
+Each patient is assigned a priority score.
+ Feature 2: Automatic Bed Assignment
+As a system, I want to assign critical patients to available beds automatically so that they receive immediate care.
+Acceptance Criteria:
+System checks bed availability in real time.
+Critical patients are assigned immediately if a bed is available.
 
+Feature 3: Bed Unavailability Handling
+As a system, I want to notify staff when no beds are available so that alternative actions can be taken.
+Acceptance Criteria:
+Alert is triggered if no beds exist.
+System displays warning message on dashboard.
 #### 3.2.1 Feature: [Insert Feature Name, e.g., Patient Registration]
 *   **Description:** [Briefly describe the feature].
 *   **Priority:** [High / Medium / Low].
