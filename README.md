@@ -5,18 +5,18 @@
 ---
 
 ## Module Overview
-The **ER-FLOW** module automates and manages patient traffic within the hospital's Emergency Department, starting from the moment of arrival and registration at reception. It features an intelligent triage system that prioritizes patients based on medical urgency using a standardized color-coding algorithm. Furthermore, it automatically allocates critical cases to available beds and minor operating rooms to minimize overcrowding and bottlenecking, while providing administrative dashboards for monitoring patient wait times and overall department efficiency.
+The ER-FLOW module automates and manages patient traffic within the hospital's Emergency Department, starting from the moment of arrival and registration at reception. It features an intelligent triage system that prioritizes patients based on medical urgency using a standardized color-coding algorithm. Furthermore, it automatically allocates critical cases to available beds and minor operating rooms to minimize overcrowding and bottlenecking, while providing administrative dashboards for monitoring patient wait times and overall department efficiency.
 
 ---
 
 ## Team Members, Task Assignment & Issues
 *Tasks have been strategically distributed and tracked via GitHub Issues among the 6 team members under the team leader's coordination:*
 
-| Member Name | Primary Responsibility | Assigned Tasks (Examples) | GitHub Issue | GitHub Profile |
+| Member Name | Primary Responsibility | Assigned Tasks & Deliverables | GitHub Issue | GitHub Profile |
 | :--- | :--- | :--- | :--- | :--- |
-| **Jaafar Alfandi (Leader)** | Integration & Architecture | Component Diagrams, API Specs, GitHub Organization, Team Coordination | #2 | [Link](https://github.com/jaafaralfandi) |
+| **Jaafar Alfandi (Leader)** | Integration & Architecture | Component Diagrams, API Specs, GitHub Organization | #2 | [Link](https://github.com/jaafaralfandi) |
 | **Zynalabdyn Mansour** | Requirements & Analysis | Functional & Non-Functional Requirements, Use Case Diagrams | #3 | [Link](https://github.com/zynalabdynmnswr151-byte) |
-| **Maya Adanouv** | Process Modeling | Activity Diagrams (for Triage & Patient Flow), Business Rules | #4 | [Link](https://github.com/mayaadanouv) |
+| **Maya Adanouv** | Process Modeling | Activity Diagrams (Triage Flow & Patient Routing), Business Rules | #4 | [Link](https://github.com/mayaadanouv) |
 | **Nagham Alibrahim** | Data Design | Entity Relationship Diagram (ERD), Database Schema, Class Diagrams | #5 | [Link](https://github.com/Nagham-Alibrahim) |
 | **Mary Hussain** | Dynamic Modeling | Sequence Diagrams (Patient Registration & Triage Logic Flow) | #6 | [Link](https://github.com/maryhussain) |
 | **Farah Ageeb** | UI/UX & Frontend | UI Wireframes (Reception, Medical Staff Portal, Admin Dashboard) | #7 | [Link](https://github.com/farah-ageeb) |
@@ -44,20 +44,12 @@ The **ER-FLOW** module automates and manages patient traffic within the hospital
 
 ---
 
-## Architectural Design
-## Project Source Files
-* To review the fully interactive UML models, you can download the original Visual Paradigm project file: [Download ER-FLOW-Analysis-Design.vpp](https://github.com/SE226G4/hospital-erp-g4-t6-er-flow/blob/main/ER-Flow-Component-Diagram.vpp)
+## Architectural & Technical Specifications
+
 ### 1. Architectural Description
-The architecture of **ER-FLOW** follows a strict 3-tier pattern to guarantee high performance, clear separation of concerns, and rapid system responsiveness essential for emergency environments. The presentation layer (Client Layer) communicates with the backend services through a standardized interface called the `Emergency API`. Data operations are completely isolated within a dedicated `Database Access Component`, ensuring robust security, maintainability, and seamless database schema upgrades.
+The architecture of ER-FLOW follows a strict 3-tier pattern to guarantee high performance, clear separation of concerns, and rapid system responsiveness essential for emergency environments. The presentation layer (Client Layer) communicates with the backend services through a standardized interface called the Emergency API. Data operations are completely isolated within a dedicated Database Access Component, ensuring robust security, maintainability, and seamless database schema upgrades.
 
-### 2. Component Diagram
-<img width="1030" height="513" alt="ER-FLOW Component Diagram" src="https://github.com/user-attachments/assets/97d00c5b-370a-4d25-86e4-9dc738c2af2a" />
-
----
-
-## Integration & API Specifications
-
-### 1. Emergency API Specifications
+### 2. Emergency API Specifications
 The following table outlines the core REST API endpoints that connect the client interfaces with the backend services as modeled in the structural architecture:
 
 | HTTP Method | API Endpoint | Description | Component Source |
@@ -69,13 +61,25 @@ The following table outlines the core REST API endpoints that connect the client
 | **PUT** | `/api/resources/beds/allocate`| Assigns a designated bed or room to a prioritized critical patient. | `Resource & Bed Allocator` |
 | **GET** | `/api/admin/analytics` | Generates analytics on patient wait times and performance metrics. | `Admin Dashboard` |
 
-### 2. External Integration Points
+### 3. External Integration Points
 *How the ER-FLOW module interacts with other core hospital systems:*
 * **Inbound:** Fetches existing demographic data and medical histories from the central [Patient Records Module] to minimize data entry duplication during emergency admissions.
 * **Outbound:** Dispatches real-time routing payloads to the [Inpatient Admissions Module] and [Surgery Optimization System] when patients require hospital admission or major operating theatre scheduling.
 
 ---
+
+## Project Deliverables & Source Directories
+*Click on the folder links below to open each team member's dedicated GitHub directory containing all native source files (.vpp, .drawio, .xml, and images) for individual evaluation:*
+
+* **[Download Use Case Workspace - Assigned to Zynalabdyn Mansour](./docs/diagrams/use_case/)**
+* **[Download Activity Workspace - Assigned to Maya Adanouv](./docs/diagrams/activity/)**
+* **[Download ERD & Class Diagrams Workspace - Assigned to Nagham Alibrahim](./docs/diagrams/erd/)**
+* **[Download Component Workspace - Assigned to Jaafar Alfandi](./docs/diagrams/component/)**
+* **[Download Sequence Workspace - Assigned to Mary Hussain](./docs/diagrams/sequence/)**
+* **[Download UI Wireframes Workspace - Assigned to Farah Ageeb](./docs/diagrams/ui/)**
+
+---
 ## Tools Used
 * **Modeling:** Visual Paradigm / Draw.io.
 * **Documentation:** Markdown (GitHub Readme).
-* **Version Control:** GitHub (SE226G4 Organization / G4-Integration Team).
+* **Version Control:** GitHub (SE226G4 Organization / hospital-erp-g4-t6-er-flow).
