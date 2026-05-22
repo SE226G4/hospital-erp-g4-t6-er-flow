@@ -16,7 +16,7 @@ The **ER-FLOW** module automates and manages patient traffic within the hospital
 | :--- | :--- | :--- | :--- | :--- |
 | **Jaafar Alfandi (Leader)** | Integration & Architecture | Component Diagrams, API Specs, GitHub Organization, Team Coordination | #2 | [Link](https://github.com/jaafaralfandi) |
 | **Zynalabdyn Mansour** | Requirements & Analysis | Functional & Non-Functional Requirements, Use Case Diagrams | #3 | [Link](https://github.com/zynalabdynmnswr151-byte) |
-| **Maya Adanouv** | Process Modeling | Activity Diagrams (BPMN for Triage & Patient Flow), Business Rules | #4 | [Link](https://github.com/mayaadanouv) |
+| **Maya Adanouv** | Process Modeling | Activity Diagrams (for Triage & Patient Flow), Business Rules | #4 | [Link](https://github.com/mayaadanouv) |
 | **Nagham Alibrahim** | Data Design | Entity Relationship Diagram (ERD), Database Schema, Class Diagrams | #5 | [Link](https://github.com/Nagham-Alibrahim) |
 | **Mary Hussain** | Dynamic Modeling | Sequence Diagrams (Patient Registration & Triage Logic Flow) | #6 | [Link](https://github.com/maryhussain) |
 | **Farah Ageeb** | UI/UX & Frontend | UI Wireframes (Reception, Medical Staff Portal, Admin Dashboard) | #7 | [Link](https://github.com/farah-ageeb) |
