@@ -1,12 +1,12 @@
 # Database Schema
 
 ## 1. Entity-Relationship Diagram (ERD)
-![Emergency Room Flow ERD](./docs/diagrams/erd/)
+*The native structural database models and detailed diagrams can be accessed through the dedicated workspace:*
 
-*Note: The native structural database models and detailed diagrams can be accessed through the dedicated ERD directory.*
+[Click here to open the ERD directory](./docs/diagrams/erd/)
 
 ## 2. Tables List
-*List the main tables in your database as structured in the Entity Relationship Diagram2.png:*
+*List the main tables in your database as structured in the Entity Relationship Diagram:*
 
 | Table Name | Purpose / Description |
 | :--- | :--- |
