@@ -3,7 +3,7 @@
 ## 1. Entity-Relationship Diagram (ERD)
 *The native structural database models and detailed diagrams can be accessed through the dedicated workspace:*
 
-[Click here to open the ERD directory](./docs/diagrams/erd/)
+[Click here to open the ERD directory](diagrams/erd/.)
 
 ## 2. Tables List
 *List the main tables in your database as structured in the Entity Relationship Diagram:*
