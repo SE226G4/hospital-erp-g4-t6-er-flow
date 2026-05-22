@@ -74,6 +74,7 @@ The following table outlines the core REST API endpoints that connect the client
 * **[Download Use Case Workspace - Assigned to Zynalabdyn Mansour](./docs/diagrams/use_case/)**
 * **[Download Activity Workspace - Assigned to Maya Adanouv](./docs/diagrams/activity/)**
 * **[Download ERD & Class Diagrams Workspace - Assigned to Nagham Alibrahim](./docs/diagrams/erd/)**
+* * **Class Diagrams:** [Click here to open the Class Diagrams directory](./docs/diagrams/class/)
 * **[Download Component Workspace - Assigned to Jaafar Alfandi](./docs/diagrams/component/)**
 * **[Download Sequence Workspace - Assigned to Mary Hussain](./docs/diagrams/sequence/)**
 * **[Download UI Wireframes Workspace - Assigned to Farah Ageeb](./docs/diagrams/ui/)**
