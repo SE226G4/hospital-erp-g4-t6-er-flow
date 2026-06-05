@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrigerManager.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b58a48000db6b216aa4f52d7b0b2f28fc731d90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44d344f61d4d6b604e7121ba646de2892db04cae")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrigerManager.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrigerManager.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
