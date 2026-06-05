@@ -930,19 +930,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JT\\.nuget\\packages\\": {}
+    "C:\\Users\\INFINITY\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\TrigerManager.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\TrigerManager.Tests.csproj",
       "projectName": "TrigerManager.Tests",
-      "projectPath": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\TrigerManager.Tests.csproj",
-      "packagesPath": "C:\\Users\\JT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\obj\\",
+      "projectPath": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\TrigerManager.Tests.csproj",
+      "packagesPath": "C:\\Users\\INFINITY\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\tests\\TrigerManager.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\JT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\INFINITY\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -955,8 +955,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {
-              "projectPath": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj"
+            "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {
+              "projectPath": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj"
             }
           }
         }

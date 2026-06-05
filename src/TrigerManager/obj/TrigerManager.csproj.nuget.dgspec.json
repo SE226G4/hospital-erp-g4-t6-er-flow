@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {}
+    "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {
+    "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj",
+        "projectUniqueName": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj",
         "projectName": "TrigerManager",
-        "projectPath": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj",
-        "packagesPath": "C:\\Users\\JT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JT\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\obj\\",
+        "projectPath": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\TrigerManager.csproj",
+        "packagesPath": "C:\\Users\\INFINITY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\INFINITY\\Desktop\\hospital-erp-g4-t6-er-flow\\src\\TrigerManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\INFINITY\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
