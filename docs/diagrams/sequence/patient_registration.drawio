@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="Fc3-tJCFBTueOx3nfUJS">
+    <mxGraphModel dx="1261" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="510" width="620" x="60" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="270" width="20" x="110" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-4" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="Nurse" vertex="1">
+          <mxGeometry height="26" width="80" x="80" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;size=40;" value="Emergency Controller" vertex="1">
+          <mxGeometry height="300" width="165" x="325" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="ER Database" vertex="1">
+          <mxGeometry height="300" width="190" x="490" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-8" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Presentation Layer" vertex="1">
+          <mxGeometry height="510" width="170" x="155" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-5" parent="jJPavmTdTgyyO8pJ3kpF-8" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;size=35;" value="Registration UI" vertex="1">
+          <mxGeometry height="290" width="170" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-12" edge="1" parent="jJPavmTdTgyyO8pJ3kpF-8" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="jJPavmTdTgyyO8pJ3kpF-5" value="enter Patient Details">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="-35" y="120" as="sourcePoint" />
+            <mxPoint x="45" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Application Layer" vertex="1">
+          <mxGeometry height="510" width="165" x="325" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-11" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Data Layer&amp;nbsp;" vertex="1">
+          <mxGeometry height="510" width="190" x="490" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-13" edge="1" parent="1" source="jJPavmTdTgyyO8pJ3kpF-5" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="jJPavmTdTgyyO8pJ3kpF-6" value="POST / api/ patients&lt;div&gt;(json payload)&lt;/div&gt;">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="270" y="240" as="sourcePoint" />
+            <mxPoint x="350" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="INSERT INTO Patients(data)">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="407" y="270" as="sourcePoint" />
+            <mxPoint x="584.5" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-16" edge="1" parent="1" source="jJPavmTdTgyyO8pJ3kpF-7" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Success(Patient_ID)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="300" as="sourcePoint" />
+            <mxPoint x="410" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-17" edge="1" parent="1" source="jJPavmTdTgyyO8pJ3kpF-6" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.515;exitY=0.733;exitDx=0;exitDy=0;exitPerimeter=0;" target="jJPavmTdTgyyO8pJ3kpF-5" value="Created(Success 201 Message)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="320" as="sourcePoint" />
+            <mxPoint x="320" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-18" edge="1" parent="1" source="jJPavmTdTgyyO8pJ3kpF-5" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="DisplaySuccessAlert">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="360" as="sourcePoint" />
+            <mxPoint x="120" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jJPavmTdTgyyO8pJ3kpF-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#23445d;fillColor=#bac8d3;align=center;verticalAlign=middle;rounded=0;" value="Patient Registration" vertex="1">
+          <mxGeometry height="30" width="280" x="240" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

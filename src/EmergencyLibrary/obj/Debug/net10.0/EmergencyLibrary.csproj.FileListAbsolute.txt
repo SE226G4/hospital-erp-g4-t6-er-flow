@@ -1,0 +1,12 @@
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\bin\Debug\net10.0\EmergencyLibrary.deps.json
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\bin\Debug\net10.0\EmergencyLibrary.dll
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\bin\Debug\net10.0\EmergencyLibrary.pdb
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.AssemblyInfoInputs.cache
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.AssemblyInfo.cs
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.csproj.CoreCompileInputs.cache
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.sourcelink.json
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.dll
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\refint\EmergencyLibrary.dll
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\EmergencyLibrary.pdb
+C:\Users\JT\hospital-erp-g4-t6-er-flow\src\EmergencyLibrary\obj\Debug\net10.0\ref\EmergencyLibrary.dll
