@@ -1,0 +1,11 @@
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\bin\Debug\net10.0\BedLibrary.deps.json
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\bin\Debug\net10.0\BedLibrary.dll
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\bin\Debug\net10.0\BedLibrary.pdb
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.AssemblyInfoInputs.cache
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.AssemblyInfo.cs
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.dll
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\refint\BedLibrary.dll
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\BedLibrary.pdb
+C:\Users\Nagham\Desktop\HospitalSystem\src\BedLibrary\obj\Debug\net10.0\ref\BedLibrary.dll
