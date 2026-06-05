@@ -1,88 +1,27 @@
 ﻿using System;
 
-namespace EmergencyLibrary
+namespace HospitalERP.Emergency
 {
-    public class EmergencyFlowSystem
+    public class EmergencyFlowManager
     {
-        // =========================================================================
-        // 1. التابع الأساسي (قبل التطوير) - قيمة التعقيد الحسابي CC = 6
-        // =========================================================================
-        public string ProcessEmergencyRouting(int triageLevel, bool isBedAvailable, int responseTimeMinutes, bool isChronic)
+        public string TriagePatient(int heartRate, int systolicBP, bool isConscious, bool hasSevereBleeding)
         {
-            string decisionResult = "";
-
-            if (triageLevel == 3 && isBedAvailable)
+            if (!isConscious || hasSevereBleeding)
             {
-                decisionResult = "توجيه فوري إلى السرير المتاح في قسم الطوارئ.";
-            }
-            else
-            {
-                if (triageLevel == 3 && !isBedAvailable)
-                {
-                    if (responseTimeMinutes > 15 || isChronic)
-                    {
-                        decisionResult = "تنبيه خطر: إخلاء سرير مريض مستقر فوراً ونقل الحالة الحرجة إليه.";
-                    }
-                    else
-                    {
-                        decisionResult = "إصدار تنبيه عاجل للإدارة الطبية لتأمين سرير إضافي خلال 5 دقائق.";
-                    }
-                }
-                else
-                {
-                    if (triageLevel == 2)
-                    {
-                        if (isBedAvailable)
-                        {
-                            decisionResult = "نقل المريض إلى أسرة الملاحظة المؤقتة.";
-                        }
-                        else
-                        {
-                            decisionResult = "وضع المريض في قائمة الانتظار مع إعادة الفحص كل 15 دقيقة.";
-                        }
-                    }
-                    else
-                    {
-                        decisionResult = "توجيه المريض إلى العيادات الخارجية التابعة للطوارئ.";
-                    }
-                }
+                return "Critical (Level 1)";
             }
 
-            return decisionResult;
+            return EvaluateVitalSigns(heartRate, systolicBP);
         }
 
-        // =========================================================================
-        // 2. التابع المطور (بعد الـ Refactoring) - قيمة التعقيد الحسابي CC = 4
-        // تم الاعتماد على أسلوب (Early Return) للتخلص من تداخل الشروط العميقة العشوائي
-        // =========================================================================
-        public string ProcessEmergencyRoutingRefactored(int triageLevel, bool isBedAvailable, int responseTimeMinutes, bool isChronic)
+        private string EvaluateVitalSigns(int heartRate, int systolicBP)
         {
-            // أ. معالجة الحالات الحرجة جداً مع توفر سرير
-            if (triageLevel == 3 && isBedAvailable)
+            if (heartRate > 120 || heartRate < 50)
             {
-                return "توجيه فوري إلى السرير المتاح في قسم الطوارئ.";
+                return (systolicBP < 90) ? "Urgent (Level 2)" : "Delayed (Level 3)";
             }
 
-            // ب. معالجة الحالات الحرجة جداً عند عدم توفر سرير
-            if (triageLevel == 3 && !isBedAvailable)
-            {
-                if (responseTimeMinutes > 15 || isChronic)
-                {
-                    return "تنبيه خطر: إخلاء سرير مريض مستقر فوراً ونقل الحالة الحرجة إليه.";
-                }
-                
-                return "إصدار تنبيه عاجل للإدارة الطبية لتأمين سرير إضافي خلال 5 دقائق.";
-            }
-
-            // ج. معالجة الحالات المتوسطة الخطورة (Triage Level = 2)
-            if (triageLevel == 2)
-            {
-                return isBedAvailable ? "نقل المريض إلى أسرة الملاحظة المؤقتة." 
-                                    : "وضع المريض في قائمة الانتظار مع إعادة الفحص كل 15 دقيقة.";
-            }
-
-            // د. معالجة الحالات البسيطة أو الباردة (تلقائياً)
-            return "توجيه المريض إلى العيادات الخارجية التابعة للطوارئ.";
+            return (systolicBP > 160) ? "Delayed (Level 3)" : "Standard (Level 4)";
         }
     }
 }
