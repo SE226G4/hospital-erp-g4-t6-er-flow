@@ -406,3 +406,9 @@ src/TrigerManager/bin/
 src/TrigerManager/obj/
 tests/TrigerManager.Tests/bin/
 tests/TrigerManager.Tests/obj/
+src/TrigerManager/bin
+tests/EmergencyLibrary.Tests/obj
+tests/BedLibrary.Tests/obj/
+tests/EmergencyLibrary.Tests/bin
+tests/BedLibrary.Tests/bin/
+src/TrigerManager/obj/

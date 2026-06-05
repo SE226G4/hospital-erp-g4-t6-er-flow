@@ -14,10 +14,10 @@ namespace EmergencyFlow.Tests
             int pulseRate = 75;
 
             // Act
-            string result = manager.ClassifyPatientTriage(isConscious, pulseRate);
+            TriageLevel result = manager.ClassifyPatientTriage(isConscious, pulseRate);
 
             // Assert
-            Assert.Equal("Critical", result);
+            Assert.Equal(TriageLevel.Critical, result);
         }
 
         [Fact]
@@ -29,10 +29,10 @@ namespace EmergencyFlow.Tests
             int pulseRate = 110;
 
             // Act
-            string result = manager.ClassifyPatientTriage(isConscious, pulseRate);
+            TriageLevel result = manager.ClassifyPatientTriage(isConscious, pulseRate);
 
             // Assert
-            Assert.Equal("Medium", result);
+            Assert.Equal(TriageLevel.Medium, result);
         }
 
         [Fact]
@@ -44,10 +44,10 @@ namespace EmergencyFlow.Tests
             int pulseRate = 75;
 
             // Act
-            string result = manager.ClassifyPatientTriage(isConscious, pulseRate);
+            TriageLevel result = manager.ClassifyPatientTriage(isConscious, pulseRate);
 
             // Assert
-            Assert.Equal("Low", result);
+            Assert.Equal(TriageLevel.Low, result);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace EmergencyFlow.Tests
         {
             // Arrange
             var manager = new TriageManager();
-            string triageLevel = "Critical";
+            TriageLevel triageLevel = TriageLevel.Critical;
             bool isBedAvailable = true;
 
             // Act
@@ -70,7 +70,7 @@ namespace EmergencyFlow.Tests
         {
             // Arrange
             var manager = new TriageManager();
-            string triageLevel = "Critical";
+            TriageLevel triageLevel = TriageLevel.Critical;
             bool isBedAvailable = false;
 
             // Act
