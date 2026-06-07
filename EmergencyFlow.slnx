@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TrigerManager/TrigerManager.csproj" />
+    <Project Path="src/EmergencyLibrary/EmergencyLibrary.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TrigerManager.Tests/TrigerManager.Tests.csproj" />
+    <Project Path="tests/EmergencyLibrary.Tests/EmergencyLibrary.Tests.csproj" />
+  </Folder>
+</Solution>

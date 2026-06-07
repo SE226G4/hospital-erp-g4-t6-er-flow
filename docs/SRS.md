@@ -1,19 +1,37 @@
+<<<<<<< HEAD
 ﻿# Software Requirements Specification (SRS)
-## Project: [Insert the Parent System Name, e.g., Hospital ERP System]
-## Module/Subsystem: [Insert Your Module Name, e.g., Laboratory Management, Clinical System, OR "Master Integration System" if you are the integration team]
+## Project: Hospital ERP System
+## Module: Emergency Flow & Triage Logic
+## Responsible Student: Student 03 (Process Modeling)  
 **Version:** 1.0  
-**Date:** [YYYY-MM-DD]
+**Date:** 2026-05-12
 
 ---
+=======
+# Software Requirements Specification (SRS) - ER-FLOW Subsystem
+>>>>>>> 09b789782a7748343b9e3cf4b382f5757fe0bc83
 
 ## 1. Introduction
 ### 1.1 Purpose
-* **Instruction:** Describe the specific purpose of this document. Who is the intended audience? If you are a subsystem team, explain how this document defines your specific module. If you are the Integration Team (Team Leaders), explain how this document governs the entire system.
+This document specifies the functional and non-functional requirements for the Emergency Room Flow (ER-FLOW) module. Designed as a core component of the integrated Hospital Management System, this module orchestrates emergency reception, triage tracking, and critical clinical resource assignments.
 
+<<<<<<< HEAD
 ### 1.2 Scope
-* **Instruction:** Define the boundaries of your system. 
-  * What are the core goals and benefits?
-  * **Crucial:** Explicitly list what your system *will* do and what it *will NOT* do to prevent overlap with other teams.
+Core Goals and Benefits:
+The primary goal of the Emergency Flow module is to automate the prioritization of patients based on medical urgency. This ensures life-threatening cases receive immediate attention and optimizes bed allocation through real-time system integration.
+
+System Boundaries:
+* The system WILL do:
+    * Automated Triage Logic: Reorder the patient queue dynamically based on severity levels (Critical, Moderate, Minor).
+    * Real-time Bed Verification: Communicate with the Bed Management module to check for availability and trigger atomic reservations.
+    * Emergency Notifications: Dispatch instant alerts to medical staff for "Critical" case arrivals.
+    * Performance Tracking: Calculate and log the "Response Time" for auditing purposes.
+
+* The system WILL NOT do:
+    * New Patient Registration: Relies on the external Admission Module for digital identity data.
+    * Automated Medical Diagnosis: Relies on severity input provided by clinical staff.
+    * Billing & Insurance: Handled exclusively by the Finance Module.
+
 
 ### 1.3 Definitions, Acronyms, and Abbreviations
 * **Instruction:** Provide a table defining all technical terms, acronyms, or domain-specific language (e.g., medical terms, API, ERP) used in this document so all teams share a common understanding.
@@ -25,20 +43,24 @@
 
 ### 1.5 Overview
 * **Instruction:** Briefly explain how the rest of this SRS document is organized.
+=======
+### 1.2 System Scope
+The ER-FLOW subsystem automates the patient lifecycle upon emergency arrival. Its boundaries encompass:
+* Patient identity logging and clinical visit activation.
+* Vital signs assessment and visual triage color-coding categorization.
+* Real-time allocation metrics for emergency beds and staff management.
+* Secure outbound synchronization with Inpatient Admissions and Central Records.
+>>>>>>> 09b789782a7748343b9e3cf4b382f5757fe0bc83
 
 ---
 
 ## 2. Overall Description
 ### 2.1 Product Perspective
-* **Instruction:** Explain how your software fits into the bigger picture. 
-  * **For Subsystem Teams:** State clearly that your module is a component of a larger system. How does it interact with the master database or other modules?
-  * **For the Integration Team:** Provide the high-level block diagram showing all subsystems and their connection points.
+The ER-FLOW subsystem operates as an interdependent module within the overarching hospital ecosystem. While it encapsulates its own operational database and application logic, it relies entirely on cross-module communication channels to retrieve global files and broadcast clinical action payloads to external subsystems.
 
+<<<<<<< HEAD
 *   **2.1.1 System Interfaces:** [List the exact integration points and APIs your module exposes to, or consumes from, other teams].
-*   **2.1.2 User Interfaces:**
--  ​The module will feature a web-based dashboard designed for high-pressure environments.
--  The UI will follow a "Speed-First" philosophy, using a color-coded Triage Matrix (Red for Critical, Yellow for Urgent, Green for Stable) to ensure rapid decision-making.
- - All interfaces will be responsive and strictly adhere to the hospital's unified design system to ensure consistency with other modules.
+*   **2.1.2 User Interfaces:** [Describe the logical characteristics of your UI. Are you following a shared design system?].
 *   **2.1.3 Hardware Interfaces:** [List any required hardware, e.g., barcode scanners for labs, or state "None"].
 *   **2.1.4 Software Interfaces:** [Specify OS requirements, database dependencies, or third-party libraries].
 *   **2.1.5 Communications Interfaces:** [Define networking protocols used, e.g., HTTP/REST, WebSockets].
@@ -50,60 +72,106 @@
 ### 2.3 User Characteristics
 * **Instruction:** Who will use your specific module? (e.g., Lab Technicians, Doctors, System Admins). Describe their technical expertise level.
 
-### 2.4 Constraints, Assumptions, and Dependencies
-* **Instruction:** List any factors that limit your development (e.g., medical data privacy laws, reliance on another team finishing their API first, specific coding languages mandated).
+#### 2.4.1 Constraints
+* Logic Constraint (Severity Priority): The system must implement a severity-based sorting algorithm where the Severity Level strictly overrides the Arrival Timestamp (FIFO).
+* Operational Constraint: Critical cases must trigger an immediate Emergency Alert if zero beds are available.
+* Audit Constraint: Every clinical decision and status change must be logged in a non-volatile audit trail.
+
+#### 2.4.2 Assumptions
+* Accurate Severity Input: It is assumed that triage staff will provide correct classifications via the API.
+* Real-time Bed Status: It is assumed that the bed database is updated in real-time to prevent double-booking.
+
+#### 2.4.3 Dependencies
+* Admission Module: Provides mandatory patient risk profiles and identity data.
+* Bed Management Module: Provides real-time availability for critical allocations.
+=======
+### 2.2 System Memory and Entities
+The subsystem’s data persistence structure maps the following architectural entities derived from the core ERD framework:
+* `PATIENT` and `EMERGENCY_VISIT` for logging admission status.
+* `TRIAGE` and `DECISION_AND_ACTION` for clinical severity categorization.
+* `BED` and `BED_ASSIGNMENT` for physical department resource optimization.
+>>>>>>> 09b789782a7748343b9e3cf4b382f5757fe0bc83
 
 ---
 
-## 3. Specific Requirements (Agile Approach)
-* **Instruction:** This section translates traditional functional requirements into Agile User Stories. Every feature must be traceable to the project management board.
+## 3. Specific Requirements (Functional Requirements)
 
-### 3.1 External Interface Requirements
-*
- * Instruction:
-   * Inbound Data: The system will receive JSON objects containing Patient_ID, Triage_Level, and Medical_History from the Admission module.
-   * Outbound Data: The system will send a POST request to the IPD module containing Patient_ID and Priority_Level to secure a bed.
-   * UI Integration:
-[25/11/47 01:34 م] Mary Hussain: The triage dashboard must display real-time visual indicators (e.g., icons or status bars) representing bed availability based on updates from the bed management system.
+### 3.1 Patient Reception and Registration
+* **Requirement ID:** FR-ER-01
+* **Description:** The system must accept basic demographic payloads to open a new emergency encounter.
+* **Input Data:** Full Name, Gender, Birth Date, National ID.
+* **Output Action:** Generate a distinct `Visit_ID` with an active status timestamp.
 
-Patient prioritization must be highlighted using a standard color-coding scheme (Red for immediate, Green for non-urgent) to ensure quick visual recognition.
-
-The system must provide an interactive map or a simplified list view that allows the nurse to drag-and-drop or click to assign a patient to a bed once confirmed by the outbound request.
-
+<<<<<<< HEAD
 ### 3.2 System Features & User Stories
-* **Instruction:** Organize your requirements by Feature. For each feature, write the underlying requirements as User Stories and link them to your GitHub Issues.
 
-#### 3.2.1 Feature: [Insert Feature Name, e.g., Patient Registration]
-*   **Description:** [Briefly describe the feature].
-*   **Priority:** [High / Medium / Low].
-*   **User Stories:**
-    *   **Story 1:**As a Triage Nurse, I want to enter the patient's National ID so that I can verify their identity and view their mandatory Risk Profile (Allergies/Chronic Diseases) before admission.
-    *    ​**Story2: As a Triage Nurse, I want to see a visual confirmation message on the screen once the bed reservation is confirmed by the IPD module.
-        * *Acceptance Criteria:* A success notification (Toast) appears clearly on the dashboard.
+#### 3.2.1 Feature: Smart Triage & Queue Management
+* Story 1: As a Triage Nurse, I want to input severity levels so the system re-prioritizes the queue.
+    * Acceptance Criteria: Critical cases jump to the top; Entry timestamps are recorded.
+    * GitHub Issue: [Link to Issue #21]
+* Story 2: As a Doctor, I want to receive immediate alerts for "Critical" status arrivals.
+    * GitHub Issue: [Link to Issue #22]
 
-#### 3.2.2 Feature: [Insert Feature Name]
-*   [Repeat the structure above for all module features].
+#### 3.2.2 Feature: Dynamic Bed Allocation Logic
+* Story 1: As a System Process, I want to query bed availability upon "Critical" classification to ensure assignment.
+    * Acceptance Criteria: Successful allocation triggers an atomic update to "Occupied".
+    * GitHub Issue: [Link to Issue #25]
+
 
 ### 3.3 Performance Requirements
-* **Instruction:** Specify quantitative limits. (e.g., "The module must return query results in under 2 seconds for up to 50 concurrent users").
+* Re-calculation Speed: Re-order the queue in < 0.5 seconds after a status change.
+* Throughput: Handle up to 50 concurrent triage updates without latency.
 
 ### 3.4 Logical Database Requirements
 * **Instruction:** Describe the data entities managed by your module. If you are using a shared database, specify which tables your team is responsible for. (Include ERD models in the Appendix).
 
-### 3.5 Software System Attributes
-* **Instruction:** Define the Non-Functional Requirements (NFRs) for your module:
-  * **Reliability:** [Acceptable failure rates].
-  * **Security:** [Authentication methods, data encryption protocols].
-  * **Maintainability & Portability:** [Coding standards, documentation rules].
-
+### 3.5 Software System Attributes (NFRs)
+* Reliability: The triage logic must maintain 99.9% availability. If the service fails, the system must default to FIFO to ensure safety.
+* Security: Access is restricted to authorized staff via Secure Token Authentication. Sensitive data is encrypted using Standard Industry Encryption Protocols.
+* Maintainability: Logic is implemented via a Decoupled Service Layer and follows Clean Coding Standards to allow easy updates to medical protocols.
 ---
 
 ## 4. Appendices
 ### Appendix A: Glossary & Models
-* **Instruction:** Include any Data Flow Diagrams (DFDs), Entity-Relationship Diagrams (ERDs), or detailed UI Mockups here.
-
+* Emergency Flow Activity Diagram:
+![Emergency Flow Activity Diagram](docs/emergency-flow.jpg)
+*This diagram illustrates the process logic for Student 03 (Emergency Flow & Triage).*
 ### Appendix B: GitHub Traceability Checklist
 * **Instruction for Team Members:** Before submitting this SRS, ensure that:
   * [ ] Every User Story in Section 3.2 has a corresponding GitHub Issue.
   * [ ] Every GitHub Issue has an appropriate label (e.g., `enhancement`, `requirement`).
   * [ ] Pull Requests reference the Issue IDs (e.g., `Closes #12`). 
+=======
+### 3.2 Triage Severity Categorization
+* **Requirement ID:** FR-ER-02
+* **Description:** The system must permit designated triage officers to input physical vital signs and select an official urgency classification.
+* **Urgency Levels:** Critical (Red), Moderate (Yellow), Simple (Green).
+* **Output Action:** Log a timestamped `Triage_ID` bound directly to the active `Visit_ID`.
+
+### 3.3 Emergency Bed Allocation
+* **Requirement ID:** FR-ER-03
+* **Description:** The system must track active clinical bed availability states and map specific rooms to high-priority emergency cases.
+* **Output Action:** Transform `BED` availability attribute fields to occupied and create a `BED_ASSIGNMENT` bridging log.
+
+---
+
+## 4. System Interface and Integration Requirements
+
+### 4.1 Integration Endpoints (APIs)
+The module exposes dedicated REST API endpoints to facilitate interaction with external subsystems:
+* `POST /api/er/patient/register` - Establishes incoming temporary encounter records.
+* `PUT /api/er/triage/severity` - Commits definitive clinical color-coded classifications.
+* `GET /api/er/resource/status` - Exposes live bed inventory metrics to the central hub.
+
+---
+
+## 5. Non-Functional Requirements (NFRs)
+
+### 5.1 Performance & Reliability
+* **Response Latency:** Triage status updates and local bed assignment logs must reflect in the system dashboard within less than 1.5 seconds.
+* **Availability:** The subsystem interface must support continuous, high-availability operation profiles corresponding to the 24/7 nature of emergency departments.
+
+### 5.2 Security & Data Integrity
+* **Access Control:** System interaction modes are strictly bounded by user roles (`Staff_ID`), limiting triage logging to certified Triage Officers and bed tracking to Department Administrators.
+* **Interface Protocol:** All cross-module data streams must utilize secure transmission payloads, strictly avoiding direct database mutations across foreign subsystems.
+>>>>>>> 09b789782a7748343b9e3cf4b382f5757fe0bc83
