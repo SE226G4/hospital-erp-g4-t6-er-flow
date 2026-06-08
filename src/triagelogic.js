@@ -2,7 +2,8 @@
  * هذا التابع يقوم بتصنيف الحالة بناءً على المعايير المذكورة في نص الموديل 6
  * التعقيد الحلقي (CC) لهذه الدالة هو 4 (3 نقاط قرار + 1)
  */
-export const classifyPatientTriage = (isConscious, pulseRate, isBedAvailable) => {
+module.exports={classifyPatientTriage};
+//export const classifyPatientTriage = (isConscious, pulseRate, isBedAvailable) => {
     // مسار 1: الحالة الحرجة (إذا كان فاقد للوعي أو النبض خارج النطاق)
     if (!isConscious || pulseRate < 40 || pulseRate > 130) {
         // مسار 2: هل يوجد سرير؟
@@ -20,4 +21,4 @@ export const classifyPatientTriage = (isConscious, pulseRate, isBedAvailable) =>
     else {
         return "تصنيف كحالة بسيطة";
     }
-};
+;
