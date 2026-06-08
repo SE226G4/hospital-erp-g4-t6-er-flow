@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // استيراد الدالة من ملفها الجديد
-import { classifyPatientTriage } from './triagelogic'; 
+import { classifyPatientTriage } from '../path/to/triagelogic'; 
 
 const EmergencyDashboard = () => {
   // إضافة State للمدخلات الجديدة المطلوبة للدالة

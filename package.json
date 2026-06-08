@@ -1,0 +1,23 @@
+{
+  "name": "hospital-erp-g4-t6-er-flow",
+  "version": "1.0.0",
+  "description": "Module Code: ER-FLOW-06",
+  "main": "index.js",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SE226G4/hospital-erp-g4-t6-er-flow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "babel-jest": "^30.4.1",
+    "jest": "^29.0.0"
+  }
+}
